@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title></title>
+    <style type="text/css">
+      body, ul {
+        margin: 0px;
+        padding: 5px;
+        background-color: rgb(128, 128, 128);
+      }
+      #menu ul li {
+        display: inline;
+        list-style-type: none;
+        border-top: 1px solid black;
+        border-left: 1px solid black;
+        border: 1px solid black;
+        font-weight: bold;
+        background-color: white;
+        padding: 2px;
+      }
+      #menu ul li::last-child {
+        border: 1px solid black;
+      }
+      #menu a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var LANG=['EN', 'FR', 'IT', 'ES', 'PT', 'EL'];
+      var translations = {
+        'TR': "T&uuml;rk&ccedil;e",
+        'RO': "Rom&acirc;n&#259;",
+        'EL': "&#917;&#955;&#955;&#951;&#957;&#953;&#954;&#940;",
+        'PL': "Polski",
+        'IT': "Italiano",
+        'PT': "Portugu&ecirc;s",
+        'ES': "Espa&ntilde;ol",
+        'FR': "Fran&ccedil;ais",
+        'EN': "English"
+      };
+
+      $(function() {
+        // genere le menu avec le tableau LANG
+        // lorsqu'on click sur une entre du menu, ca charge le fichier '<lang>.html' et le met dans la div 'table'
+        var content = "<ul>";
+        for (var i = 0 ; i < LANG.length ; i++) {
+          var lang = LANG[i];
+          var translation = translations[lang];
+          content += "<li><a href='" + lang + ".html' target='mainframe'>" + translation + "</a></li>";
+        }
+        content += "</ul>";
+        $("#menu").html(content);
+      });
+    </script>
+  </head>
+  
+  <body>
+    <div id="menu"></menu>
+  </body>
+
+</html>
